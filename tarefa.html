@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GP - TAREFA </title>
+    <link rel="icon" href="img/principal.png">
+    <link href="css/css.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"> </script>
+    <script src="js/script.js"> </script>
+    <script src="js/bootstrap.js"></script>
+
+</head>
+
+<body>
+    <div id="id_master_page"> </div>
+    <div class="container-fluid">
+        <div class="cabecalho">
+            <div class="row">
+                <div class="col col-md-2">
+                    <img src="img/tarefa.png" class="rounded float-left" width="85px" alt="TAREFAS">
+                </div>
+                <div class="col col-md-3">
+                    <h1 style="font-size: 40px;margin-left: 40px;">TAREFA</h1>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="centraliza">
+                    <div class="header-content">
+                        <div class="header-content-inner redon" style="background-color:black">
+                            <input type="text" name="" value="NOME TAREFA" style="font-family: HammersmithOne;font-size: 14pt; text-align: center"
+                                class="form-control" id="nomeTarefa" disabled>
+                            <div id="contenedor">
+                                <div class="reloj" id="Horas">00</div>
+                                <div class="reloj" id="Minutos">:00</div>
+                                <div class="reloj" id="Segundos">:00</div>
+                                <div class="reloj" id="Centesimas">:00</div>
+                            </div>
+                            <div class="text-center">
+                                <input type="button" class="btn btn-danger" style="padding: 10px;" id="inicio" value="Iniciar"
+                                    onclick="inicio(); ">
+                                <input type="button" class="btn btn-danger" style="padding: 10px;" id="parar" value="Parar"
+                                    onclick="parar();" disabled>
+                                <input type="button" class="btn btn-danger" style="padding: 10px;" id="continuar" value="Resume &#8634;"
+                                    onclick="inicio();" disabled>
+                                <input type="button" class="btn btn-danger" style="padding: 10px;" id="reinicio" value="Resetar &#8635;"
+                                    onclick="reinicio();" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row" style="background-color:#337ab7;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
+                border-radius: 8px;">
+                    <h4 style="font-family: HammersmithOne; color: white;font-size: 14pt; text-align: center;">
+                        DETALHES DA TAREFA
+                    </h4>
+                </div>
+                <br>
+                <div class="row">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputNome">NOME:</label>
+                                <input type="text" class="form-control" id="inputNome" disabled>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputDescricao">DESCRIÇÃO:</label>
+                                <textarea class="form-control" id="textArea" rows="3" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="selectCategoria">CATEGORIA:</label>
+                                    <select class="form-control select_per" id="selectCategoria" disabled>
+                                            <option>BANCO DE DADOS</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                          </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <label for="selectCategoria">TIPO:</label>
+                                        <select class="form-control select_per" id="selectTipo" disabled>
+                                                <option>CRIAR SCRIPT</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                    </div>  
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="tempoAtribuido">HORAS ATRIBUÍDAS:</label>
+                                <input type="time" class="form-control" id="tempoAtribuido" disabled>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="tempoGasto">HORAS GASTAS:</label>
+                                <input type="time" class="form-control" id="tempoGasto" disabled>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group col-md-6">
+                                <label for="inputDescricao">OBSERVAÇÃO:</label>
+                                <textarea class="form-control" id="textArea" rows="3"></textarea>
+                            </div>
+                            <div class="form-group col-md-3"></div>
+                            <div class="form-group col-md-3">
+                                <button type="submit" class="btn btn-danger" style="padding:10px; margin-top: 15%;"><b>FINALIZAR
+                                        TAREFA</b></button>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div id="id_footer"></div>
+    </div>
+
+    <script>
+        $("#id_master_page").load("master_page.html");
+        $("#id_footer").load("footer.html");
+
+    </script>
+</body>
+
+</html>

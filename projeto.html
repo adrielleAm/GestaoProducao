@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GP - PROJETOS </title>
+    <link rel="icon" href="img/principal.png">
+    <link href="css/css.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"> </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"> </script>
+
+</head>
+
+<body>
+    <div id="id_master_page"> </div>
+    <div class="container-fluid">
+        <div class="cabecalho">
+            <div class="row">
+                <div class="col col-md-2">
+                    <img src="img/projeto.png" class="rounded float-left" width="100px" alt="PROJETOS">
+                </div>
+                <div class="col col-md-3" style="margin-left: 70px;">
+                    <h1 style="font-size: 40px;">PROJETOS</h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <button class="btn btn-danger bnt_per" id="bnt_Incluir"
+                        data-toggle="modal" data-target="#novoProjeto">INCLUIR</button>
+                    <button class="btn btn-danger bnt_per" id="bnt_Editar" disabled>EDITAR</button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="novoProjeto" tabindex="-1" role="dialog" aria-labelledby="novoProjeto"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" style="font-family: HammersmithOne;color: #337ab7;">Novo Projeto</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="iptnome">Nome Projeto:</label>
+                                        <input type="text" class="form-control" id="iptnome">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="slGestor">Gestor do Projeto</label>
+                                            <select id="slGestor" class="form-control">
+                                                    <option selected>Selecione</option>
+                                                    <option>Funcionario1</option>
+                                                    <option>Funcionario2</option>
+                                                    <option>Funcionario3</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary bnt_per" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary bnt_per" id="bntSalvar">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col col-md-1">
+                    </div>
+                    <div class="col col-md-10">
+                        <!--GRID-->
+                    </div>
+                    <div class="col col-md-1"></div>
+                </div>
+            </div>
+            <div id="id_footer"></div>
+            <script>
+                $("#id_master_page").load("master_page.html");
+                $("#id_footer").load("footer.html");
+            </script>
+</body>
+
+</html>

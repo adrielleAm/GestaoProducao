@@ -1,0 +1,42 @@
+{
+    "current": 1,
+    "rowCount": 10,
+    "rows": [
+        {
+            "id": 1,
+            "tarefa": "Suporte ao usuario",
+            "hAtribuida": "02:00:00",
+            "hGasta": "01:30:00",
+            "status": "REPROVADA"
+        },
+        {
+            "id": 2,
+            "tarefa": "Criar tela principal",
+            "hAtribuida": "00:30:00",
+            "hGasta": "00:30:00",
+            "status": "APROVADA"
+        },
+        {
+            "id": 3,
+            "tarefa": "Corrigir erro",
+            "hAtribuida": "06:00:00",
+            "hGasta": "07:30:00",
+            "status": "REPROVADA"
+        },
+        {
+            "id": 4,
+            "tarefa": "Atualizar documentação",
+            "hAtribuida": "02:00:00",
+            "hGasta": "02:00:00",
+            "status": "Aprovada"
+        },
+        {
+            "id": 5,
+            "tarefa": "Reunião com o cliente",
+            "hAtribuida": "01:00:00",
+            "hGasta": "01:30:00",
+            "status": "Aprovada"
+        }
+    ],
+    "total": 5
+}

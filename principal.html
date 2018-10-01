@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GP - HOME </title>
+
+    <link rel="icon" href="img/principal.png">
+    <link href="css/css.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jsGrid.css" rel="stylesheet">
+    <link href="css/jsgrid-theme.min.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"> </script>
+    <script type="text/javascript" src="JS/jsGrid.js"></script>
+    <script src="js/script.js"> </script>
+    <script src="js/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+    <div id="id_master_page"> </div>
+    <div class="container-fluid">
+        <div class="cabecalho">
+            <div class="row">
+                <div class="col col-md-2">
+                    <img src="img/solicitacao.png" class="rounded float-left" width="70px" alt="Solicitação">
+                </div>
+                <div class="col col-md-3" style="margin-left: 8%">
+                    <h1 style="font-size: 40px;">SOLICITAÇÕES</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container-fluid">
+            <!--GRID-->
+            <div id="jsGrid"></div>
+    </div>
+
+    <div id="id_footer"></div>
+
+
+    <script>
+        $("#id_master_page").load("master_page.html");
+        $("#id_footer").load("footer.html");
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+
+
+            // inserting: true,
+            //editing: true,
+            sorting: true,
+            paging: true,
+
+            data: [
+                {
+                    "ID": 1,
+                    "TAREFA": "Suporte ao usuario",
+                    "HORAS ATRIBUÍDAS": "02:00:00",
+                    "HORAS GASTAS": "01:30:00",
+                    "status": "REPROVADA"
+                },
+                {
+                    "ID": 2,
+                    "TAREFA": "Criar tela principal",
+                    "HORAS ATRIBUÍDAS": "00:30:00",
+                    "HORAS GASTAS": "00:30:00",
+                    "status": "APROVADA"
+                },
+                {
+                    "ID": 3,
+                    "TAREFA": "Corrigir erro",
+                    "HORAS ATRIBUÍDAS": "06:00:00",
+                    "HORAS GASTAS": "07:30:00",
+                    "status": "REPROVADA"
+                },
+                {
+                    "ID": 4,
+                    "TAREFA": "Atualizar documentação",
+                    "HORAS ATRIBUÍDAS": "02:00:00",
+                    "HORAS GASTAS": "02:00:00",
+                    "status": "Aprovada"
+                },
+                {
+                    "ID": 5,
+                    "TAREFA": "Reunião com o cliente",
+                    "HORAS ATRIBUÍDAS": "01:00:00",
+                    "HORAS GASTAS": "01:30:00",
+                    "status": "FINALZADA"
+                }
+            ],
+
+            fields: [
+                { name: "ID", type: "number", width: 50, validate: "required" },
+                { name: "TAREFA", type: "text", width: 150 },
+                { name: "HORAS ATRIBUÍDAS", type: "time", width: 200 },
+                { name: "HORAS GASTAS", type: "time" },
+                { name: "status", type: "text" },
+
+            ],
+            rowClick: function (args) {
+                console.log(args)
+                var getData = args.item;
+                var keys = Object.keys(getData);
+                var resultado = []
+                $.each(keys, function (idx, value) {
+                    resultado.push(value + " : " + getData[value])
+                });
+
+                alert(resultado);
+            },
+
+            loadComplete: function fontFormatter(cellValue, opts, rowObject) {
+                switch (rowObject.col1) {
+                    case "1":
+                        return '<span style="color:red">' + cellValue + '</span>';
+                        break;
+                    case "2":
+                        return '<span style="color:green">' + cellValue + '</span>';
+                        break;
+                }
+            }
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
