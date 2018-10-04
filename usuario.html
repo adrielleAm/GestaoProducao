@@ -9,7 +9,10 @@
     <link rel="icon" href="img/principal.png">
     <link href="css/css.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jsGrid.css" rel="stylesheet">
+    <link href="css/jsgrid-theme.min.css" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"> </script>
+    <script src="JS/jsGrid.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"> </script>
 
@@ -34,6 +37,11 @@
         <button class="btn btn-danger bnt_per" id="bnt_Incluir" data-toggle="modal" data-target="#novoUsuario">INCLUIR</button>
         <button class="btn btn-danger bnt_per" id="bnt_Editar" disabled>EDITAR</button>
     </div>
+    <hr>
+    <div class="container-fluid">
+        <!--GRID-->
+        <div id="jsGrid"></div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="novoUsuario" tabindex="-1" role="dialog" aria-labelledby="novoUsuario" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,11 +50,22 @@
                     <h2 class="modal-title" style="font-family: HammersmithOne;color: #337ab7;">Novo Usuário</h2>
                 </div>
                 <div class="modal-body">
-                    <form style="margin-bottom: 25%;">
+                    <form style="margin-bottom: 40%;">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <label for="iptnome">Nome completo:</label>
                                 <input type="text" class="form-control" id="iptnome">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="iptnome">Cargo</label>
+                                <select id="slCargo" class="form-control">
+                                    <option selected>Selecione</option>
+                                    <option>Desenvolvedor</option>
+                                    <option>Estagiario</option>
+                                </select>
+
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="slPerfil">Perfil</label>
@@ -84,21 +103,90 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col col-md-1">
-            </div>
-            <div class="col col-md-10">
-               
-            <div class="col col-md-1"></div>
-        </div>
-    </div>
     <div id="id_footer"></div>
 
     <script>
         $("#id_master_page").load("master_page.html");
         $("#id_footer").load("footer.html");
-        $("#wizard").steps();
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+
+
+            // inserting: true,
+            //editing: true,
+            sorting: true,
+            paging: true,
+
+            data: [
+                {
+                    "ID": 1,
+                    "NOME": "Joao",
+                    "E-MAIL": "joao@gmail.com",
+                    "PERFIL": "Usuário Normal",
+                    "ATIVO": "SIM"
+                },
+                {
+                    "ID": 2,
+                    "NOME": "Libio",
+                    "E-MAIL": "libio@gmail.com",
+                    "PERFIL": "Usuário Normal",
+                    "ATIVO": "Não"
+                },
+                {
+                    "ID": 3,
+                    "NOME": "Oldomario",
+                    "E-MAIL": "oldomario@gmail.com",
+                    "PERFIL": "Usuário Normal",
+                    "ATIVO": "Sim"
+                },
+                {
+                    "ID": 4,
+                    "NOME": "Diego",
+                    "E-MAIL": "diego@gmail.com",
+                    "PERFIL": "Usuário Normal",
+                    "ATIVO": "Não"
+                },
+                {
+                    "ID": 5,
+                    "NOME": "Adrielle Araujo",
+                    "E-MAIL": "adrielle@gmail.com",
+                    "PERFIL": "Administrador",
+                    "ATIVO": "SIM"
+                }
+            ],
+
+            fields: [
+                { name: "ID", type: "number", width: 50, validate: "required" },
+                { name: "NOME", type: "text", width: 150 },
+                { name: "E-MAIL", type: "time", width: 200 },
+                { name: "PERFIL", type: "time", width: 200 },
+                { name: "ATIVO", type: "text" }
+
+            ],
+            rowClick: function (args) {
+                console.log(args)
+                var getData = args.item;
+                var keys = Object.keys(getData);
+                var resultado = []
+                $.each(keys, function (idx, value) {
+                    resultado.push(value + " : " + getData[value])
+                });
+
+                alert(resultado);
+            },
+
+            loadComplete: function fontFormatter(cellValue, opts, rowObject) {
+                switch (rowObject.col1) {
+                    case "1":
+                        return '<span style="color:red">' + cellValue + '</span>';
+                        break;
+                    case "2":
+                        return '<span style="color:green">' + cellValue + '</span>';
+                        break;
+                }
+            }
+        });
     </script>
 </body>
 
